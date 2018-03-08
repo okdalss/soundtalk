@@ -1,0 +1,493 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93A95F2E7768793ADE85CB1A /* Pods_SoundTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B83DA3A858E489B416A62914 /* Pods_SoundTalk.framework */; };
+		C00C59532015CBEB00181528 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C00C59522015CBEB00181528 /* GoogleService-Info.plist */; };
+		C02BE0642034628C00EA388C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BE0632034628C00EA388C /* Chat.swift */; };
+		C066F17D203164FB00AB8007 /* CreatChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C066F17C203164FB00AB8007 /* CreatChatViewController.swift */; };
+		C0CB9BBE200DBE760061BEE7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CB9BBD200DBE760061BEE7 /* AudioToolbox.framework */; };
+		C0CE7914204E92CA00617846 /* MyChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE7913204E92CA00617846 /* MyChatController.swift */; };
+		C0CFCBCF204586E2009BC57D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFCBCE204586E2009BC57D /* LoginController.swift */; };
+		C0CFCBD1204586F3009BC57D /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFCBD0204586F3009BC57D /* RegisterController.swift */; };
+		C0CFCBD3204587AE009BC57D /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFCBD2204587AE009BC57D /* WelcomeController.swift */; };
+		C0CFCBD52046CE94009BC57D /* MainChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFCBD42046CE94009BC57D /* MainChatController.swift */; };
+		C0DA5DF5201714440020C83D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA5DF4201714440020C83D /* LoginViewController.swift */; };
+		C0DF57F8200CA9DE00436295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DF57F7200CA9DE00436295 /* AppDelegate.swift */; };
+		C0DF57FA200CA9DE00436295 /* SendVoiceMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DF57F9200CA9DE00436295 /* SendVoiceMessageViewController.swift */; };
+		C0DF57FD200CA9DE00436295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0DF57FB200CA9DE00436295 /* Main.storyboard */; };
+		C0DF57FF200CA9DE00436295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0DF57FE200CA9DE00436295 /* Assets.xcassets */; };
+		C0DF5802200CA9DE00436295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0DF5800200CA9DE00436295 /* LaunchScreen.storyboard */; };
+		C0DF580A200DB10700436295 /* AudioSessionandRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DF5809200DB10700436295 /* AudioSessionandRecord.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2A6FB53B83054C4DCB0A33F1 /* Pods-SoundTalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundTalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-SoundTalk/Pods-SoundTalk.release.xcconfig"; sourceTree = "<group>"; };
+		B83DA3A858E489B416A62914 /* Pods_SoundTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoundTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00C59522015CBEB00181528 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C02BE0632034628C00EA388C /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		C066F17C203164FB00AB8007 /* CreatChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatChatViewController.swift; sourceTree = "<group>"; };
+		C0CB9BBB200DBE760061BEE7 /* SoundTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundTalk.entitlements; sourceTree = "<group>"; };
+		C0CB9BBD200DBE760061BEE7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C0CE7913204E92CA00617846 /* MyChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatController.swift; sourceTree = "<group>"; };
+		C0CFCBCE204586E2009BC57D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		C0CFCBD0204586F3009BC57D /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		C0CFCBD2204587AE009BC57D /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
+		C0CFCBD42046CE94009BC57D /* MainChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChatController.swift; sourceTree = "<group>"; };
+		C0DA5DF4201714440020C83D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C0DF57F4200CA9DE00436295 /* SoundTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0DF57F7200CA9DE00436295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C0DF57F9200CA9DE00436295 /* SendVoiceMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVoiceMessageViewController.swift; sourceTree = "<group>"; };
+		C0DF57FC200CA9DE00436295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C0DF57FE200CA9DE00436295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C0DF5801200CA9DE00436295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C0DF5803200CA9DE00436295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0DF5809200DB10700436295 /* AudioSessionandRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionandRecord.swift; sourceTree = "<group>"; };
+		E00B1A9778C5E5669038FFF4 /* Pods-SoundTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundTalk/Pods-SoundTalk.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C0DF57F1200CA9DE00436295 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0CB9BBE200DBE760061BEE7 /* AudioToolbox.framework in Frameworks */,
+				93A95F2E7768793ADE85CB1A /* Pods_SoundTalk.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C3B142EC55A304205722F9F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E00B1A9778C5E5669038FFF4 /* Pods-SoundTalk.debug.xcconfig */,
+				2A6FB53B83054C4DCB0A33F1 /* Pods-SoundTalk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C02BE0602034622700EA388C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C02BE0632034628C00EA388C /* Chat.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C0CB9BBC200DBE760061BEE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0CB9BBD200DBE760061BEE7 /* AudioToolbox.framework */,
+				B83DA3A858E489B416A62914 /* Pods_SoundTalk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0CB9BC1201097B80061BEE7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C0DA5DF620172EBC0020C83D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C066F17C203164FB00AB8007 /* CreatChatViewController.swift */,
+				C0DF57F9200CA9DE00436295 /* SendVoiceMessageViewController.swift */,
+				C0DA5DF4201714440020C83D /* LoginViewController.swift */,
+				C0CFCBD42046CE94009BC57D /* MainChatController.swift */,
+				C0CFCBCE204586E2009BC57D /* LoginController.swift */,
+				C0CFCBD0204586F3009BC57D /* RegisterController.swift */,
+				C0CFCBD2204587AE009BC57D /* WelcomeController.swift */,
+				C0CE7913204E92CA00617846 /* MyChatController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C0DF57EB200CA9DE00436295 = {
+			isa = PBXGroup;
+			children = (
+				C0CB9BC1201097B80061BEE7 /* Supporting Files */,
+				C0DF57F6200CA9DE00436295 /* SoundTalk */,
+				C0DF57F5200CA9DE00436295 /* Products */,
+				C0CB9BBC200DBE760061BEE7 /* Frameworks */,
+				0C3B142EC55A304205722F9F /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		C0DF57F5200CA9DE00436295 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C0DF57F4200CA9DE00436295 /* SoundTalk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C0DF57F6200CA9DE00436295 /* SoundTalk */ = {
+			isa = PBXGroup;
+			children = (
+				C02BE0602034622700EA388C /* Model */,
+				C0CB9BBB200DBE760061BEE7 /* SoundTalk.entitlements */,
+				C0DF5803200CA9DE00436295 /* Info.plist */,
+				C00C59522015CBEB00181528 /* GoogleService-Info.plist */,
+				C0DF57F7200CA9DE00436295 /* AppDelegate.swift */,
+				C0DF57FB200CA9DE00436295 /* Main.storyboard */,
+				C0DF5809200DB10700436295 /* AudioSessionandRecord.swift */,
+				C0DF57FE200CA9DE00436295 /* Assets.xcassets */,
+				C0DF5800200CA9DE00436295 /* LaunchScreen.storyboard */,
+				C0DA5DF620172EBC0020C83D /* ViewController */,
+			);
+			path = SoundTalk;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C0DF57F3200CA9DE00436295 /* SoundTalk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0DF5806200CA9DE00436295 /* Build configuration list for PBXNativeTarget "SoundTalk" */;
+			buildPhases = (
+				F6FDB261BAB3471CAF7B3410 /* [CP] Check Pods Manifest.lock */,
+				C0DF57F0200CA9DE00436295 /* Sources */,
+				C0DF57F1200CA9DE00436295 /* Frameworks */,
+				C0DF57F2200CA9DE00436295 /* Resources */,
+				46F36A98857F3BA43D7640E9 /* [CP] Embed Pods Frameworks */,
+				DA0FB853832D646B6CC08BA5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SoundTalk;
+			productName = SoundTalk;
+			productReference = C0DF57F4200CA9DE00436295 /* SoundTalk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C0DF57EC200CA9DE00436295 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "신진욱";
+				TargetAttributes = {
+					C0DF57F3200CA9DE00436295 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = C0DF57EF200CA9DE00436295 /* Build configuration list for PBXProject "SoundTalk" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C0DF57EB200CA9DE00436295;
+			productRefGroup = C0DF57F5200CA9DE00436295 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C0DF57F3200CA9DE00436295 /* SoundTalk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C0DF57F2200CA9DE00436295 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0DF5802200CA9DE00436295 /* LaunchScreen.storyboard in Resources */,
+				C00C59532015CBEB00181528 /* GoogleService-Info.plist in Resources */,
+				C0DF57FF200CA9DE00436295 /* Assets.xcassets in Resources */,
+				C0DF57FD200CA9DE00436295 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46F36A98857F3BA43D7640E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SoundTalk/Pods-SoundTalk-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundTalk/Pods-SoundTalk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA0FB853832D646B6CC08BA5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SoundTalk/Pods-SoundTalk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6FDB261BAB3471CAF7B3410 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoundTalk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C0DF57F0200CA9DE00436295 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0DA5DF5201714440020C83D /* LoginViewController.swift in Sources */,
+				C0CFCBD52046CE94009BC57D /* MainChatController.swift in Sources */,
+				C0CE7914204E92CA00617846 /* MyChatController.swift in Sources */,
+				C02BE0642034628C00EA388C /* Chat.swift in Sources */,
+				C066F17D203164FB00AB8007 /* CreatChatViewController.swift in Sources */,
+				C0DF57FA200CA9DE00436295 /* SendVoiceMessageViewController.swift in Sources */,
+				C0CFCBCF204586E2009BC57D /* LoginController.swift in Sources */,
+				C0CFCBD3204587AE009BC57D /* WelcomeController.swift in Sources */,
+				C0DF57F8200CA9DE00436295 /* AppDelegate.swift in Sources */,
+				C0DF580A200DB10700436295 /* AudioSessionandRecord.swift in Sources */,
+				C0CFCBD1204586F3009BC57D /* RegisterController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C0DF57FB200CA9DE00436295 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0DF57FC200CA9DE00436295 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C0DF5800200CA9DE00436295 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C0DF5801200CA9DE00436295 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C0DF5804200CA9DE00436295 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C0DF5805200CA9DE00436295 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C0DF5807200CA9DE00436295 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E00B1A9778C5E5669038FFF4 /* Pods-SoundTalk.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SoundTalk/SoundTalk.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KPQP38DW3E;
+				INFOPLIST_FILE = SoundTalk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sejong.shin.SoundTalk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0DF5808200CA9DE00436295 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A6FB53B83054C4DCB0A33F1 /* Pods-SoundTalk.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SoundTalk/SoundTalk.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KPQP38DW3E;
+				INFOPLIST_FILE = SoundTalk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sejong.shin.SoundTalk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C0DF57EF200CA9DE00436295 /* Build configuration list for PBXProject "SoundTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0DF5804200CA9DE00436295 /* Debug */,
+				C0DF5805200CA9DE00436295 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0DF5806200CA9DE00436295 /* Build configuration list for PBXNativeTarget "SoundTalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0DF5807200CA9DE00436295 /* Debug */,
+				C0DF5808200CA9DE00436295 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C0DF57EC200CA9DE00436295 /* Project object */;
+}
