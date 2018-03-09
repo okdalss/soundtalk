@@ -146,6 +146,18 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
         
         return randomString
     }
+    
+    @IBAction func logoutForTEST(_ sender: UIButton) {
+        do {
+            try Auth.auth().signOut()
+        } catch let logoutError {
+            print(logoutError)
+        }
+        let loginViewController = storyboard?.instantiateViewController(withIdentifier: "login view cont")
+        self.dismiss(animated: true, completion: nil)
+        self.present(loginViewController!, animated: false, completion: nil)
+    }
+    
 }
 
 class LoadMoreChatsTableViewCell: UITableViewCell {

@@ -17,6 +17,7 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     var avAudioPlayer: AVAudioPlayer?
+    var hasWelcomeVoice = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
             return
         } else {
             creatChatRoom(chatName: chatNameTextField.text!)
+            self.dismiss(animated: false, completion: nil)
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -53,6 +55,7 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
         } else {
             recordButton.isEnabled = false
             playButton.isEnabled = false
+            hasWelcomeVoice = false
         }
     }
     
@@ -77,9 +80,7 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
                 if (avAudioPlayer?.isPlaying)! {
                     playButton.isEnabled = false
                 }
-            } catch {
-                print("can not play")
-            }
+            } catch { print("can not play") }
         }
     }
     
@@ -93,28 +94,40 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
         var name: Any?
         let userReference = ref.child("users")
         userReference.child(uid!).child("name").observeSingleEvent(of: .value, with: { (snapshot) in
-            name = snapshot.value
+            name = snapshot.value // get user name
             if let name = name {
-                let chatsReference = ref.child("chats").childByAutoId()
-                let values = ["chat name": chatName, "host": name]
-                chatsReference.setValue(values)
+                let chatsReference = ref.child("chats").childByAutoId() // create new chats child by autoID
                 
-                userReference.child(uid!).observeSingleEvent(of: .value) { (snapshot) in
-                    let dic = (snapshot.value as? [String: Any])!
-                    var chats = dic["mychats"] as? [String]
-                    
+                // add welcomeVoice to storage
+                if self.audioSessionRecorder.audioFile != nil {
+                    self.hasWelcomeVoice = true
+                    self.addWelcomeVoiceToStorage(chatId: chatsReference.key)
+                }
+                // add chat to chats
+                let values = ["chat name": chatName, "host": name, "welcome voice": self.hasWelcomeVoice]
+                chatsReference.setValue(values) // set chat name and host to this child
+                
+
+                // add to mychats in user reference
+                userReference.child(uid!).child("mychats").observeSingleEvent(of: .value) { (snapshot) in
+                    var chats = snapshot.value as? [String]
                     if (chats == nil) {
                         chats = [chatsReference.key]
                     }
                     else {
                         chats?.append(chatsReference.key)
                     }
-
                     let values = ["mychats": chats!]
                     userReference.child(uid!).updateChildValues(values)
                     chats?.removeAll()
                 }
             }
         })
+    }
+    
+    func addWelcomeVoiceToStorage(chatId: String) {
+        let storageRef = Storage.storage().reference()
+        let welcomeVoice = storageRef.child("/welcome_voice").child(chatId)
+        welcomeVoice.putFile(from: audioSessionRecorder.audioFile!) //later,, add completion delete file..really need this???..i don't think so..hmm...
     }
 }

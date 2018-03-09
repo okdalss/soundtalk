@@ -19,7 +19,6 @@
 		C0CFCBD52046CE94009BC57D /* MainChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFCBD42046CE94009BC57D /* MainChatController.swift */; };
 		C0DA5DF5201714440020C83D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA5DF4201714440020C83D /* LoginViewController.swift */; };
 		C0DF57F8200CA9DE00436295 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DF57F7200CA9DE00436295 /* AppDelegate.swift */; };
-		C0DF57FA200CA9DE00436295 /* SendVoiceMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DF57F9200CA9DE00436295 /* SendVoiceMessageViewController.swift */; };
 		C0DF57FD200CA9DE00436295 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0DF57FB200CA9DE00436295 /* Main.storyboard */; };
 		C0DF57FF200CA9DE00436295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0DF57FE200CA9DE00436295 /* Assets.xcassets */; };
 		C0DF5802200CA9DE00436295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0DF5800200CA9DE00436295 /* LaunchScreen.storyboard */; };
@@ -42,7 +41,6 @@
 		C0DA5DF4201714440020C83D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C0DF57F4200CA9DE00436295 /* SoundTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0DF57F7200CA9DE00436295 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0DF57F9200CA9DE00436295 /* SendVoiceMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendVoiceMessageViewController.swift; sourceTree = "<group>"; };
 		C0DF57FC200CA9DE00436295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0DF57FE200CA9DE00436295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0DF5801200CA9DE00436295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				C066F17C203164FB00AB8007 /* CreatChatViewController.swift */,
-				C0DF57F9200CA9DE00436295 /* SendVoiceMessageViewController.swift */,
 				C0DA5DF4201714440020C83D /* LoginViewController.swift */,
 				C0CFCBD42046CE94009BC57D /* MainChatController.swift */,
 				C0CFCBCE204586E2009BC57D /* LoginController.swift */,
@@ -294,7 +291,6 @@
 				C0CE7914204E92CA00617846 /* MyChatController.swift in Sources */,
 				C02BE0642034628C00EA388C /* Chat.swift in Sources */,
 				C066F17D203164FB00AB8007 /* CreatChatViewController.swift in Sources */,
-				C0DF57FA200CA9DE00436295 /* SendVoiceMessageViewController.swift in Sources */,
 				C0CFCBCF204586E2009BC57D /* LoginController.swift in Sources */,
 				C0CFCBD3204587AE009BC57D /* WelcomeController.swift in Sources */,
 				C0DF57F8200CA9DE00436295 /* AppDelegate.swift in Sources */,
