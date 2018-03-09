@@ -12,7 +12,6 @@ import Firebase
 class MainChatController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var chatTableView: UITableView!
-    let cellId = "cellId"
     var chats = [Chat]()
     var userName: String?
     
@@ -20,7 +19,6 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         getUserName()
-        chatTableView.register(ChatCell.self, forCellReuseIdentifier: cellId)
         chatTableView.dataSource = self
         chatTableView.delegate = self
         loadChats(loadNum: 5)
@@ -44,24 +42,30 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chats.count + 1
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell?
+        var returnCell: UITableViewCell?
         if indexPath.row != (chats.count) {
-            cell = chatTableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+            var cell: ChatTableViewCell?
+            cell = chatTableView.dequeueReusableCell(withIdentifier: "Chat Cell", for: indexPath) as? ChatTableViewCell
             let chat = chats[indexPath.row]
-            cell?.textLabel?.text = chat.name
-            cell?.detailTextLabel?.text = chat.host
+            cell?.titleLable?.text = chat.name
+            cell?.hostLable?.text = chat.host
+            returnCell = cell
         } else {
-            cell = chatTableView.dequeueReusableCell(withIdentifier: "LoadMoreCell", for: indexPath) as? LoadMoreChatsTableViewCell
+            returnCell = chatTableView.dequeueReusableCell(withIdentifier: "LoadMoreCell", for: indexPath) as? LoadMoreChatsTableViewCell
         }
-        return cell!
+        return returnCell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == chats.count {
             loadChats(loadNum: 5)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     var firstUpdate = true
@@ -164,12 +168,3 @@ class LoadMoreChatsTableViewCell: UITableViewCell {
     @IBOutlet weak var loadTextLable: UILabel!
 }
 
-class ChatCell: UITableViewCell {
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}

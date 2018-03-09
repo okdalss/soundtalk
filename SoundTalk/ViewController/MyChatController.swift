@@ -9,11 +9,9 @@
 import UIKit
 import Firebase
 
-class MyChatController: UIViewController, UITableViewDataSource {
+class MyChatController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var myChatTableView: UITableView!
-    
-    let cellId = "cellId"
     var mychats = [Chat]()
     var userRef: DatabaseReference?
     var chatRef: DatabaseReference?
@@ -23,8 +21,8 @@ class MyChatController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view.
         userRef = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!)
         chatRef = Database.database().reference().child("chats")
-        myChatTableView.register(ChatCell.self, forCellReuseIdentifier: cellId)
         myChatTableView.dataSource = self
+        myChatTableView.delegate = self
         getMyChats()
     }
 
@@ -55,13 +53,17 @@ class MyChatController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell?
-        cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        var cell: ChatTableViewCell?
+        cell = tableView.dequeueReusableCell(withIdentifier: "Chat Cell", for: indexPath) as? ChatTableViewCell
         let mychat = mychats[indexPath.row]
-        cell?.textLabel?.text = mychat.name
-        cell?.detailTextLabel?.text = mychat.host
+        cell?.titleLable?.text = mychat.name
+        cell?.hostLable?.text = mychat.host
         
         return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
 
