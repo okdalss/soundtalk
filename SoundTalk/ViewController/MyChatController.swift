@@ -37,8 +37,7 @@ class MyChatController: UIViewController, UITableViewDataSource, UITableViewDele
                 let mychat = Chat(code: chatId)
                 self.chatRef?.child(chatId).observeSingleEvent(of: .value, with: { (snap) in
                     let dic = snap.value as? [String: Any]
-                    mychat.name = dic?["chat name"] as? String
-                    mychat.host = dic?["host"] as? String
+                    mychat.chatSetting(dic: dic)
                     self.mychats.append(mychat)
                     DispatchQueue.main.async(execute: {
                         self.myChatTableView.reloadData()
@@ -55,15 +54,14 @@ class MyChatController: UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: ChatTableViewCell?
         cell = tableView.dequeueReusableCell(withIdentifier: "Chat Cell", for: indexPath) as? ChatTableViewCell
-        let mychat = mychats[indexPath.row]
-        cell?.titleLable?.text = mychat.name
-        cell?.hostLable?.text = mychat.host
+//        let mychat = mychats[indexPath.row]
+        cell?.cellSetting(chat: mychats[indexPath.row])
         
         return cell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
     
 

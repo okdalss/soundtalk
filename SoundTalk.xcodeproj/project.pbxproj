@@ -11,6 +11,7 @@
 		C00C59532015CBEB00181528 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C00C59522015CBEB00181528 /* GoogleService-Info.plist */; };
 		C02BE0642034628C00EA388C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BE0632034628C00EA388C /* Chat.swift */; };
 		C030D1C1205262C300682936 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D1C0205262C300682936 /* ChatTableViewCell.swift */; };
+		C06478362060F2A200A8B5C8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06478352060F2A200A8B5C8 /* Extensions.swift */; };
 		C066F17D203164FB00AB8007 /* CreatChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C066F17C203164FB00AB8007 /* CreatChatViewController.swift */; };
 		C0CB9BBE200DBE760061BEE7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CB9BBD200DBE760061BEE7 /* AudioToolbox.framework */; };
 		C0CE7914204E92CA00617846 /* MyChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE7913204E92CA00617846 /* MyChatController.swift */; };
@@ -24,6 +25,7 @@
 		C0DF57FF200CA9DE00436295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0DF57FE200CA9DE00436295 /* Assets.xcassets */; };
 		C0DF5802200CA9DE00436295 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0DF5800200CA9DE00436295 /* LaunchScreen.storyboard */; };
 		C0DF580A200DB10700436295 /* AudioSessionandRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DF5809200DB10700436295 /* AudioSessionandRecord.swift */; };
+		C0E43F052062C60400478BA8 /* PopUpImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E43F042062C60400478BA8 /* PopUpImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,7 @@
 		C00C59522015CBEB00181528 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C02BE0632034628C00EA388C /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		C030D1C0205262C300682936 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		C06478352060F2A200A8B5C8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C066F17C203164FB00AB8007 /* CreatChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatChatViewController.swift; sourceTree = "<group>"; };
 		C0CB9BBB200DBE760061BEE7 /* SoundTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundTalk.entitlements; sourceTree = "<group>"; };
 		C0CB9BBD200DBE760061BEE7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -48,6 +51,7 @@
 		C0DF5801200CA9DE00436295 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0DF5803200CA9DE00436295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0DF5809200DB10700436295 /* AudioSessionandRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionandRecord.swift; sourceTree = "<group>"; };
+		C0E43F042062C60400478BA8 /* PopUpImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpImageViewController.swift; sourceTree = "<group>"; };
 		E00B1A9778C5E5669038FFF4 /* Pods-SoundTalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoundTalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SoundTalk/Pods-SoundTalk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +86,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C06478342060F27400A8B5C8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C06478352060F2A200A8B5C8 /* Extensions.swift */,
+				C0DF5809200DB10700436295 /* AudioSessionandRecord.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C0CB9BBC200DBE760061BEE7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +121,7 @@
 				C0CFCBD2204587AE009BC57D /* WelcomeController.swift */,
 				C0CFCBD42046CE94009BC57D /* MainChatController.swift */,
 				C0CE7913204E92CA00617846 /* MyChatController.swift */,
+				C0E43F042062C60400478BA8 /* PopUpImageViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -134,6 +148,7 @@
 		C0DF57F6200CA9DE00436295 /* SoundTalk */ = {
 			isa = PBXGroup;
 			children = (
+				C06478342060F27400A8B5C8 /* Helpers */,
 				C02BE0602034622700EA388C /* Model */,
 				C0DA5DF620172EBC0020C83D /* ViewController */,
 				C0DF57FB200CA9DE00436295 /* Main.storyboard */,
@@ -141,7 +156,6 @@
 				C0CB9BBB200DBE760061BEE7 /* SoundTalk.entitlements */,
 				C00C59522015CBEB00181528 /* GoogleService-Info.plist */,
 				C0DF57F7200CA9DE00436295 /* AppDelegate.swift */,
-				C0DF5809200DB10700436295 /* AudioSessionandRecord.swift */,
 				C0DF57FE200CA9DE00436295 /* Assets.xcassets */,
 				C0DF5800200CA9DE00436295 /* LaunchScreen.storyboard */,
 			);
@@ -290,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0DA5DF5201714440020C83D /* LoginViewController.swift in Sources */,
+				C06478362060F2A200A8B5C8 /* Extensions.swift in Sources */,
 				C0CFCBD52046CE94009BC57D /* MainChatController.swift in Sources */,
 				C0CE7914204E92CA00617846 /* MyChatController.swift in Sources */,
 				C02BE0642034628C00EA388C /* Chat.swift in Sources */,
@@ -299,6 +314,7 @@
 				C0CFCBD3204587AE009BC57D /* WelcomeController.swift in Sources */,
 				C0DF57F8200CA9DE00436295 /* AppDelegate.swift in Sources */,
 				C0DF580A200DB10700436295 /* AudioSessionandRecord.swift in Sources */,
+				C0E43F052062C60400478BA8 /* PopUpImageViewController.swift in Sources */,
 				C0CFCBD1204586F3009BC57D /* RegisterController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

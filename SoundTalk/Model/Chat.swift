@@ -12,9 +12,21 @@ class Chat: NSObject {
     var code: String?
     var name: String?
     var host: String?
-    var welcomeVoice: URL?
+    var welcomeVoice = false
+    var chatImage = false
     
     init(code: String) {
         self.code = code
+    }
+    
+    func chatSetting(dic: [String: Any]?) {
+        name = dic?["chat name"] as? String
+        host = dic?["host"] as? String
+        if dic?["welcome voice"] as? Int == 1 {
+            welcomeVoice = true
+        }
+        if dic?["chat image"] as? Int == 1 {
+            chatImage = true
+        }
     }
 }

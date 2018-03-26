@@ -10,14 +10,17 @@ import UIKit
 import Firebase
 import AVFoundation
 
-class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
+class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let audioSessionRecorder = AudioSessionandRecord()
     @IBOutlet weak var chatNameTextField: UITextField!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var chatRoomImgView: UIImageView!
     var avAudioPlayer: AVAudioPlayer?
     var hasWelcomeVoice = false
+    let uiImagePicker = UIImagePickerController()
+    var hasChatImage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,8 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
         self.navigationItem.rightBarButtonItem = button
         recordButton.isEnabled = false
         playButton.isEnabled = false
+        uiImagePicker.delegate = self
+        // for test
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +47,7 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
             return
         } else {
             creatChatRoom(chatName: chatNameTextField.text!)
-            self.dismiss(animated: false, completion: nil)
+//            self.dismiss(animated: false, completion: nil)
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -88,6 +93,44 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
         playButton.isEnabled = true
     }
     
+    @IBAction func imgToggled(_ sender: UISwitch) {
+        showImgActionSheet()
+    }
+    
+    func showImgActionSheet() {
+        let actionSheet = UIAlertController(title: "Select Source", message: nil, preferredStyle: .actionSheet)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let photoLibrary = UIAlertAction(title: "From Photo Library", style: .default) { [weak self] action in
+            self?.uiImagePicker.allowsEditing = false                                     // this should be true later.
+            self?.uiImagePicker.sourceType = .photoLibrary
+            self?.uiImagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+            self?.present((self?.uiImagePicker)!, animated: true, completion: nil)
+        }
+        actionSheet.addAction(photoLibrary)
+        actionSheet.addAction(cancel)
+        present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let resizedImage = chosenImage.resizeWithWidth(width: 70)
+        chatRoomImgView.contentMode = .scaleAspectFit
+        chatRoomImgView.image = resizedImage
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func googleUpload(image: UIImage, chatCode: String) {
+        let chatRoomImgRef = Storage.storage().reference().child("/chatroom_img").child(chatCode)
+        let imgData = UIImagePNGRepresentation(image) as Data?
+//        let compressData = UIImageJPEGRepresentation(imgData, 0.5) //max value is 1.0 and minimum is 0.0
+//        let compressedImage = UIImage(data: compressData!)
+        if let data = imgData {
+            chatRoomImgRef.putData(data, metadata: nil, completion: { (meta, error) in
+                print("upload completed.")
+            })
+        }
+    }
+    
     func creatChatRoom(chatName: String) {
         let ref = Database.database().reference()
         let uid = Auth.auth().currentUser?.uid
@@ -98,13 +141,18 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
             if let name = name {
                 let chatsReference = ref.child("chats").childByAutoId() // create new chats child by autoID
                 
+                // add imge to storage
+                if let img = self.chatRoomImgView.image {
+                    self.hasChatImage = true
+                    self.googleUpload(image: img, chatCode: chatsReference.key)
+                }
                 // add welcomeVoice to storage
                 if self.audioSessionRecorder.audioFile != nil {
                     self.hasWelcomeVoice = true
-                    self.addWelcomeVoiceToStorage(chatId: chatsReference.key)
+                    self.addWelcomeVoiceToStorage(chatCode: chatsReference.key)
                 }
                 // add chat to chats
-                let values = ["chat name": chatName, "host": name, "welcome voice": self.hasWelcomeVoice]
+                let values = ["chat name": chatName, "host": name, "welcome voice": self.hasWelcomeVoice, "chat image": self.hasChatImage]
                 chatsReference.setValue(values) // set chat name and host to this child
                 
 
@@ -125,9 +173,9 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate {
         })
     }
     
-    func addWelcomeVoiceToStorage(chatId: String) {
+    func addWelcomeVoiceToStorage(chatCode: String) {
         let storageRef = Storage.storage().reference()
-        let welcomeVoice = storageRef.child("/welcome_voice").child(chatId)
+        let welcomeVoice = storageRef.child("/welcome_voice").child(chatCode)
         welcomeVoice.putFile(from: audioSessionRecorder.audioFile!) //later,, add completion delete file..really need this???..i don't think so..hmm...
     }
 }
