@@ -54,8 +54,7 @@ class MyChatController: UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: ChatTableViewCell?
         cell = tableView.dequeueReusableCell(withIdentifier: "Chat Cell", for: indexPath) as? ChatTableViewCell
-//        let mychat = mychats[indexPath.row]
-        cell?.cellSetting(chat: mychats[indexPath.row])
+//        cell?.cellSetting(chat: mychats[indexPath.row])
         
         return cell!
     }

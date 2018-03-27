@@ -300,9 +300,9 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="41" id="PO8-lZ-3er"/>
                                                     </constraints>
-                                                    <state key="normal" title="WV"/>
+                                                    <state key="normal" title="voice"/>
                                                     <connections>
-                                                        <action selector="playWV:" destination="7fV-A2-1v7" eventType="touchUpInside" id="YEH-l6-fzu"/>
+                                                        <action selector="playVoice:" destination="7fV-A2-1v7" eventType="touchUpInside" id="vUt-86-cO9"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -445,10 +445,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="41" id="0cc-L2-9wF"/>
                                                     </constraints>
-                                                    <state key="normal" title="WV"/>
-                                                    <connections>
-                                                        <action selector="playWV:" destination="cfs-lU-dec" eventType="touchUpInside" id="BtV-hx-RFr"/>
-                                                    </connections>
+                                                    <state key="normal" title="voice"/>
                                                 </button>
                                             </subviews>
                                             <constraints>

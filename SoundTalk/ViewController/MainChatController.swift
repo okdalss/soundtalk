@@ -12,7 +12,30 @@ import Firebase
 class MainChatController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var chatTableView: UITableView!
-    var chats = [Chat]()
+    var cacheImages = [String: UIImageView]()
+    var chats = [Chat]() {
+        willSet(newVal) {
+            if let last = newVal.last {
+                getChatImage(code: last.code!, chatImgView: UIImageView())
+            }
+        }
+    }
+    
+    func getChatImage(code: String, chatImgView: UIImageView) {
+        let chatImgChild = Storage.storage().reference().child("chatroom_img").child(code)
+        chatImgChild.downloadURL { (url, error) in
+            if url != nil {
+                chatImgView.downloadedFrom(url: url!, contentMode: .scaleAspectFit, completion: {
+                    self.cacheImages[code] = chatImgView
+                    self.chatTableView.reloadData()
+                })
+            }
+            if error != nil {
+//                print(error as Any)
+            }
+        }
+    }
+    
     var userName: String?
     
     override func viewDidLoad() {
@@ -21,13 +44,12 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
         getUserName()
         chatTableView.dataSource = self
         chatTableView.delegate = self
-        loadChats(loadNum: 10)
         //for test
-//        let chatRef = Database.database().reference().child("chats")
-//        chatRef.observe(DataEventType.childAdded) { (snap) in
-//            print("print go")
-//            print(snap.key)
-//        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadChats(loadNum: 10)
     }
     
     func getUserName() {
@@ -54,7 +76,7 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
         if indexPath.row != (chats.count) {
             var cell: ChatTableViewCell?
             cell = chatTableView.dequeueReusableCell(withIdentifier: "Chat Cell", for: indexPath) as? ChatTableViewCell
-            cell?.cellSetting(chat: chats[indexPath.row])
+            cell?.cellSetting(chat: chats[indexPath.row], imageView: cacheImages[chats[indexPath.row].code!])
             returnCell = cell
         } else {
             returnCell = chatTableView.dequeueReusableCell(withIdentifier: "LoadMoreCell", for: indexPath) as? LoadMoreChatsTableViewCell
@@ -101,7 +123,6 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
                 self.addToChatsArray(snapshot: snap, firstUpdate: self.firstUpdate, firstSnap: firstSnap)
                 self.lastChild = snap.key
                 DispatchQueue.main.async(execute: {
-                    print(self.chats.count+1)
                     self.chatTableView.reloadData()
                 })
                 firstSnap = false

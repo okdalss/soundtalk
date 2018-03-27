@@ -23,10 +23,10 @@ class ChatTableViewCell: UITableViewCell, AVAudioPlayerDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        welcomeVoiceButton.isEnabled = false
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-        chatImg.isUserInteractionEnabled = true
-        chatImg.addGestureRecognizer(tapGestureRecognizer)
+        welcomeVoiceButton.isHidden = true
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+//        chatImg.isUserInteractionEnabled = true
+//        chatImg.addGestureRecognizer(tapGestureRecognizer)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,38 +35,28 @@ class ChatTableViewCell: UITableViewCell, AVAudioPlayerDelegate {
         // Configure the view for the selected state
     }
     
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-//        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupimageviewid") as! PopUpImageViewController
-        popOverVC.imageCode = chatCode
-//        popOverVC.view.frame = self.frame
-        self.superview?.addSubview(popOverVC.view)
-    }
+//    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+////        let tappedImage = tapGestureRecognizer.view as! UIImageView
+//        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupimageviewid") as! PopUpImageViewController
+//        popOverVC.imageCode = chatCode
+////        popOverVC.view.frame = self.frame
+//        self.superview?.addSubview(popOverVC.view)
+//    }
 
-    func cellSetting(chat: Chat) {
+    func cellSetting(chat: Chat, imageView: UIImageView?) {
         titleLable.text = chat.name
         hostLable.text = chat.host
         // welcomeVoice set
         if chat.welcomeVoice == true {
+            welcomeVoiceButton.isHidden = false
             welcomeVoiceButton.isEnabled = true
         }
         // chatImg set
-        if chat.chatImage == true {
-            getChatImage(code: chat.code!)
+        if chat.chatImage == true && imageView != nil {
+                chatImg.image = imageView?.image
         }
+        
         chatCode = chat.code
-    }
-    
-    func getChatImage(code: String) {
-        let chatImgChild = Storage.storage().reference().child("chatroom_img").child(code)
-        chatImgChild.downloadURL { (url, error) in
-            if url != nil {
-                self.chatImg.downloadedFrom(url: url!)
-            }
-            if error != nil {
-                print(error as Any)
-            }
-        }
     }
     
     func streamVoice(code: String) {
@@ -79,10 +69,9 @@ class ChatTableViewCell: UITableViewCell, AVAudioPlayerDelegate {
         }
     }
     
-    @IBAction func playWV(_ sender: UIButton) {
+    @IBAction func playVoice(_ sender: UIButton) {
         streamVoice(code: chatCode!)
     }
-    
     
     
 }
