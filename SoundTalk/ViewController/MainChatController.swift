@@ -12,14 +12,21 @@ import Firebase
 class MainChatController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var chatTableView: UITableView!
+//    var welcomeVoiceInfo = [String: Bool]()
     var cacheImages = [String: UIImageView]()
+    var willSetNum = 0
     var chats = [Chat]() {
         willSet(newVal) {
             if let last = newVal.last {
+//                getWelcomeVoiceInfo(chat: last)
                 getChatImage(code: last.code!, chatImgView: UIImageView())
             }
         }
     }
+    
+//    func getWelcomeVoiceInfo(chat: Chat) {
+//        welcomeVoiceInfo[chat.code!] = chat.welcomeVoice
+//    }
     
     func getChatImage(code: String, chatImgView: UIImageView) {
         let chatImgChild = Storage.storage().reference().child("chatroom_img").child(code)
@@ -87,7 +94,18 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == chats.count {
             loadChats(loadNum: 2)
+        } else {
+            showPopupView(indexPath: indexPath)
         }
+    }
+    
+    func showPopupView(indexPath: IndexPath) {
+        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupimageviewid") as! PopUpImageViewController
+        self.addChildViewController(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        popOverVC.imageCode = chats[indexPath.row].code
+        self.view.addSubview(popOverVC.view)
+        popOverVC.didMove(toParentViewController: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -98,6 +116,7 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
     var lastChild: String?
     
     func loadChats(loadNum: UInt) {
+        print("load chats.....")
         let chatRef = Database.database().reference().child("chats")
         if firstUpdate {
             let query = chatRef.queryLimited(toFirst: loadNum)
@@ -147,7 +166,6 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
                 chats.append(chat)
             }
         }
-
     }
     
 //    @IBAction func fortestChatsToCreate(_ sender: Any) {

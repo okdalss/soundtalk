@@ -17,6 +17,10 @@ class PopUpImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if imageCode != nil {
             getChatImage(code: imageCode!)
         }
@@ -37,4 +41,8 @@ class PopUpImageViewController: UIViewController {
         }
     }
 
+    @IBAction func closePopup(_ sender: Any) {
+        self.view.removeFromSuperview()
+    }
+    
 }

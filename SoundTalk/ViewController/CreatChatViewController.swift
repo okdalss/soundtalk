@@ -113,7 +113,7 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let resizedImage = chosenImage.resizeWithWidth(width: 70)
+        let resizedImage = chosenImage.resizeWithWidth(width: 300)
         chatRoomImgView.contentMode = .scaleAspectFit
         chatRoomImgView.image = resizedImage
         dismiss(animated: true, completion: nil)

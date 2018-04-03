@@ -35,15 +35,20 @@ class ChatTableViewCell: UITableViewCell, AVAudioPlayerDelegate {
         // Configure the view for the selected state
     }
     
-//    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-////        let tappedImage = tapGestureRecognizer.view as! UIImageView
-//        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupimageviewid") as! PopUpImageViewController
-//        popOverVC.imageCode = chatCode
-////        popOverVC.view.frame = self.frame
-//        self.superview?.addSubview(popOverVC.view)
-//    }
-
+    //    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    ////        let tappedImage = tapGestureRecognizer.view as! UIImageView
+    //        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupimageviewid") as! PopUpImageViewController
+    //        popOverVC.imageCode = chatCode
+    ////        popOverVC.view.frame = self.frame
+    //        self.superview?.addSubview(popOverVC.view)
+    //    }
+    
+    override func prepareForReuse() {
+        welcomeVoiceButton.isHidden = true
+    }
+    
     func cellSetting(chat: Chat, imageView: UIImageView?) {
+//        print("\(chat.code) wvInfo is \(wvInfo)")
         titleLable.text = chat.name
         hostLable.text = chat.host
         // welcomeVoice set
@@ -53,7 +58,7 @@ class ChatTableViewCell: UITableViewCell, AVAudioPlayerDelegate {
         }
         // chatImg set
         if chat.chatImage == true && imageView != nil {
-                chatImg.image = imageView?.image
+            chatImg.image = imageView?.image
         }
         
         chatCode = chat.code
