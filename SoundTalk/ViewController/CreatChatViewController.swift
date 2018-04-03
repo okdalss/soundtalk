@@ -21,6 +21,13 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
     var hasWelcomeVoice = false
     let uiImagePicker = UIImagePickerController()
     var hasChatImage = false
+    var completeUpload = [false, false, false, false] {
+        didSet {
+            if completeUpload == [true, true, true, true] {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    } // image, welcomevoice, to chatsRef, to userRef
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +54,8 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
             return
         } else {
             creatChatRoom(chatName: chatNameTextField.text!)
-//            self.dismiss(animated: false, completion: nil)
-            self.navigationController?.popViewController(animated: true)
+            //            self.dismiss(animated: false, completion: nil)
+
         }
     }
     
@@ -126,7 +133,9 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
 //        let compressedImage = UIImage(data: compressData!)
         if let data = imgData {
             chatRoomImgRef.putData(data, metadata: nil, completion: { (meta, error) in
-                print("upload completed.")
+                print("upload image completed.")
+                self.completeUpload[0] = true
+                print("completeUpload : \(self.completeUpload)")
             })
         }
     }
@@ -141,7 +150,7 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
             if let name = name {
                 let chatsReference = ref.child("chats").childByAutoId() // create new chats child by autoID
                 
-                // add imge to storage
+                // add image to storage
                 if let img = self.chatRoomImgView.image {
                     self.hasChatImage = true
                     self.googleUpload(image: img, chatCode: chatsReference.key)
@@ -153,7 +162,11 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
                 }
                 // add chat to chats
                 let values = ["chat name": chatName, "host": name, "welcome voice": self.hasWelcomeVoice, "chat image": self.hasChatImage]
-                chatsReference.setValue(values) // set chat name and host to this child
+//                chatsReference.setValue(values) // set chat name and host to this child
+                chatsReference.setValue(values, withCompletionBlock: { (error, ref) in
+                    print("add chat to chats completed.")
+                    self.completeUpload[2] = true
+                })
                 
 
                 // add to mychats in user reference
@@ -167,6 +180,10 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
                     }
                     let values = ["mychats": chats!]
                     userReference.child(uid!).updateChildValues(values)
+                    userReference.child(uid!).updateChildValues(values, withCompletionBlock: { (error, ref) in
+                        print("add to mychats in user refernce completed.")
+                        self.completeUpload[3] = true
+                    })
                     chats?.removeAll()
                 }
             }
@@ -177,5 +194,9 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
         let storageRef = Storage.storage().reference()
         let welcomeVoice = storageRef.child("/welcome_voice").child(chatCode)
         welcomeVoice.putFile(from: audioSessionRecorder.audioFile!) //later,, add completion delete file..really need this???..i don't think so..hmm...
+        welcomeVoice.putFile(from: audioSessionRecorder.audioFile!, metadata: nil) { (meta, error) in
+            print("add welcomeVoice to storage completed.")
+            self.completeUpload[1] = true
+        }
     }
 }

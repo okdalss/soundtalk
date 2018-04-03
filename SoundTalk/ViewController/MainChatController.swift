@@ -12,21 +12,15 @@ import Firebase
 class MainChatController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var chatTableView: UITableView!
-//    var welcomeVoiceInfo = [String: Bool]()
     var cacheImages = [String: UIImageView]()
     var willSetNum = 0
     var chats = [Chat]() {
         willSet(newVal) {
             if let last = newVal.last {
-//                getWelcomeVoiceInfo(chat: last)
                 getChatImage(code: last.code!, chatImgView: UIImageView())
             }
         }
     }
-    
-//    func getWelcomeVoiceInfo(chat: Chat) {
-//        welcomeVoiceInfo[chat.code!] = chat.welcomeVoice
-//    }
     
     func getChatImage(code: String, chatImgView: UIImageView) {
         let chatImgChild = Storage.storage().reference().child("chatroom_img").child(code)
@@ -93,7 +87,7 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == chats.count {
-            loadChats(loadNum: 2)
+            loadChats(loadNum: 5)
         } else {
             showPopupView(indexPath: indexPath)
         }
@@ -116,7 +110,6 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
     var lastChild: String?
     
     func loadChats(loadNum: UInt) {
-        print("load chats.....")
         let chatRef = Database.database().reference().child("chats")
         if firstUpdate {
             let query = chatRef.queryLimited(toFirst: loadNum)
@@ -167,33 +160,6 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
     }
-    
-//    @IBAction func fortestChatsToCreate(_ sender: Any) {
-//        let numOfChats = 2
-//        for _ in 1...numOfChats {
-//            let chatRef: DatabaseReference? = Database.database().reference().child("chats")
-//            if let ref = chatRef?.childByAutoId() {
-//                let values = ["chat name": randomString(length: 7), "host": randomString(length: 4)]
-//                ref.setValue(values)
-//            }
-//        }
-//    }
-    
-//    func randomString(length: Int) -> String {
-//        
-//        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-//        let len = UInt32(letters.length)
-//        
-//        var randomString = ""
-//        
-//        for _ in 0 ..< length {
-//            let rand = arc4random_uniform(len)
-//            var nextChar = letters.character(at: Int(rand))
-//            randomString += NSString(characters: &nextChar, length: 1) as String
-//        }
-//        
-//        return randomString
-//    }
     
     @IBAction func logoutForTEST(_ sender: UIButton) {
         do {

@@ -406,9 +406,9 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Ku-0s-QfN">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="My Room"/>
+                                <state key="normal" title="Create"/>
                                 <connections>
-                                    <segue destination="dG8-DO-rYo" kind="show" id="lJW-cz-W7J"/>
+                                    <segue destination="TEj-pI-q4m" kind="show" id="IFW-T3-n5L"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -514,9 +514,6 @@
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create Chat"/>
-                                <connections>
-                                    <segue destination="TEj-pI-q4m" kind="show" id="8Sb-q9-2u2"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -526,7 +523,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R8z-HZ-T2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2288.8000000000002" y="715.59220389805103"/>
+            <point key="canvasLocation" x="3089" y="716"/>
         </scene>
         <!--Creating Chat-->
         <scene sceneID="1TN-y2-mbq">
@@ -628,7 +625,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qjL-uh-tNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3037.5999999999999" y="716.49175412293857"/>
+            <point key="canvasLocation" x="2324" y="716"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZJo-Hb-Z1g">
