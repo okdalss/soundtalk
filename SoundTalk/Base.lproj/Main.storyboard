@@ -235,10 +235,10 @@
                                 <rect key="frame" x="34" y="98" width="307" height="470"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hzP-M4-JTy">
-                                        <rect key="frame" x="4" y="8" width="300" height="228"/>
+                                        <rect key="frame" x="4" y="8" width="300" height="300"/>
                                         <color key="backgroundColor" red="1" green="0.51001724670000004" blue="0.46579090989999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="228" id="hCn-6Y-AfK"/>
+                                            <constraint firstAttribute="height" constant="300" id="9a2-8l-Y3c"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxe-qW-EaM">
@@ -251,11 +251,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="hzP-M4-JTy" firstAttribute="leading" secondItem="Y9c-jY-h9i" secondAttribute="leading" constant="4" id="5Ue-s6-d6g"/>
-                                    <constraint firstItem="Vxe-qW-EaM" firstAttribute="centerX" secondItem="hzP-M4-JTy" secondAttribute="centerX" id="93h-Bo-QMO"/>
                                     <constraint firstAttribute="bottom" secondItem="Vxe-qW-EaM" secondAttribute="bottom" id="E0V-lw-q7g"/>
-                                    <constraint firstItem="hzP-M4-JTy" firstAttribute="centerX" secondItem="Y9c-jY-h9i" secondAttribute="centerX" id="bxJ-o6-wga"/>
-                                    <constraint firstItem="hzP-M4-JTy" firstAttribute="top" secondItem="Y9c-jY-h9i" secondAttribute="topMargin" id="rUw-Wr-bcq"/>
+                                    <constraint firstItem="hzP-M4-JTy" firstAttribute="leading" secondItem="Y9c-jY-h9i" secondAttribute="leading" constant="4" id="OUB-A9-sYk"/>
+                                    <constraint firstItem="hzP-M4-JTy" firstAttribute="centerX" secondItem="Vxe-qW-EaM" secondAttribute="centerX" id="biq-lJ-J0h"/>
+                                    <constraint firstItem="hzP-M4-JTy" firstAttribute="centerX" secondItem="Y9c-jY-h9i" secondAttribute="centerX" id="nly-rW-QY4"/>
+                                    <constraint firstItem="hzP-M4-JTy" firstAttribute="top" secondItem="Y9c-jY-h9i" secondAttribute="topMargin" id="zTl-IL-GTu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -562,14 +562,8 @@
                                     <action selector="playAction:" destination="TEj-pI-q4m" eventType="touchUpInside" id="KjH-2k-U7Q"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FAT-eD-BT4">
-                                <rect key="frame" x="312" y="136" width="51" height="31"/>
-                                <connections>
-                                    <action selector="welcomeVoiceToggled:" destination="TEj-pI-q4m" eventType="valueChanged" id="wTE-NB-AVm"/>
-                                </connections>
-                            </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="La2-Bu-2Ig">
-                                <rect key="frame" x="193" y="182" width="71" height="65"/>
+                                <rect key="frame" x="37" y="238" width="300" height="300"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome voice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fse-eu-e1q">
                                 <rect key="frame" x="16" y="141" width="123" height="21"/>
@@ -584,33 +578,39 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vcm-eG-CV7">
-                                <rect key="frame" x="312" y="199" width="51" height="31"/>
+                                <rect key="frame" x="288" y="199" width="51" height="31"/>
                                 <connections>
                                     <action selector="imgToggled:" destination="TEj-pI-q4m" eventType="valueChanged" id="fvx-Mg-rX4"/>
+                                </connections>
+                            </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FAT-eD-BT4">
+                                <rect key="frame" x="288" y="137" width="51" height="31"/>
+                                <connections>
+                                    <action selector="welcomeVoiceToggled:" destination="TEj-pI-q4m" eventType="valueChanged" id="wTE-NB-AVm"/>
                                 </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Nub-eh-pmq" firstAttribute="trailing" secondItem="FAT-eD-BT4" secondAttribute="trailing" constant="14" id="36F-yo-328"/>
+                            <constraint firstItem="FAT-eD-BT4" firstAttribute="leading" secondItem="Yyv-Wv-sPu" secondAttribute="trailing" constant="24" id="4Gr-Fb-v9w"/>
                             <constraint firstItem="nfb-uj-agx" firstAttribute="baseline" secondItem="Yyv-Wv-sPu" secondAttribute="baseline" id="5gZ-ND-gJ6"/>
                             <constraint firstItem="Mgg-6z-fp6" firstAttribute="leading" secondItem="Fse-eu-e1q" secondAttribute="leading" id="6bL-nc-VoM"/>
+                            <constraint firstItem="La2-Bu-2Ig" firstAttribute="top" secondItem="Vcm-eG-CV7" secondAttribute="bottom" constant="8" symbolic="YES" id="8Hw-Mv-0DE"/>
+                            <constraint firstItem="FAT-eD-BT4" firstAttribute="trailing" secondItem="La2-Bu-2Ig" secondAttribute="trailing" id="AWU-qh-JIq"/>
                             <constraint firstItem="Ld7-0l-Knw" firstAttribute="top" secondItem="Nub-eh-pmq" secondAttribute="top" constant="27" id="BId-Nd-KAZ"/>
-                            <constraint firstItem="Vcm-eG-CV7" firstAttribute="top" secondItem="FAT-eD-BT4" secondAttribute="bottom" constant="32" id="CGA-t9-Dy4"/>
+                            <constraint firstItem="Vcm-eG-CV7" firstAttribute="leading" secondItem="FAT-eD-BT4" secondAttribute="leading" id="FQ9-CP-5GO"/>
                             <constraint firstItem="Fse-eu-e1q" firstAttribute="baseline" secondItem="nfb-uj-agx" secondAttribute="baseline" id="ID3-pN-l0F"/>
-                            <constraint firstItem="FAT-eD-BT4" firstAttribute="top" secondItem="Ld7-0l-Knw" secondAttribute="bottom" constant="15" id="Mxu-ek-K8W"/>
-                            <constraint firstItem="FAT-eD-BT4" firstAttribute="leading" secondItem="Yyv-Wv-sPu" secondAttribute="trailing" constant="48" id="UPZ-it-jsG"/>
-                            <constraint firstItem="Vcm-eG-CV7" firstAttribute="leading" secondItem="FAT-eD-BT4" secondAttribute="leading" id="VMp-m8-SmA"/>
-                            <constraint firstItem="La2-Bu-2Ig" firstAttribute="top" secondItem="nfb-uj-agx" secondAttribute="bottom" constant="15" id="aHP-4S-YS1"/>
-                            <constraint firstItem="La2-Bu-2Ig" firstAttribute="leading" secondItem="Mgg-6z-fp6" secondAttribute="trailing" constant="40" id="ic4-US-HWg"/>
-                            <constraint firstItem="Yyv-Wv-sPu" firstAttribute="bottom" secondItem="FAT-eD-BT4" secondAttribute="bottom" id="ixb-2f-JIo"/>
+                            <constraint firstItem="FAT-eD-BT4" firstAttribute="top" secondItem="Ld7-0l-Knw" secondAttribute="bottom" constant="16" id="T7s-yS-EX7"/>
+                            <constraint firstItem="La2-Bu-2Ig" firstAttribute="leading" secondItem="Nub-eh-pmq" secondAttribute="leading" constant="37" id="X7R-Tg-2km"/>
+                            <constraint firstItem="Nub-eh-pmq" firstAttribute="bottom" secondItem="La2-Bu-2Ig" secondAttribute="bottom" constant="80" id="dLO-uo-zme"/>
+                            <constraint firstItem="Vcm-eG-CV7" firstAttribute="top" secondItem="FAT-eD-BT4" secondAttribute="bottom" constant="31" id="dM8-6T-LPB"/>
+                            <constraint firstItem="FAT-eD-BT4" firstAttribute="top" secondItem="Yyv-Wv-sPu" secondAttribute="top" id="iMg-9K-3Gc"/>
+                            <constraint firstItem="Vcm-eG-CV7" firstAttribute="centerY" secondItem="Mgg-6z-fp6" secondAttribute="centerY" id="jMK-cn-RRK"/>
                             <constraint firstItem="Ld7-0l-Knw" firstAttribute="leading" secondItem="QLy-jp-hPD" secondAttribute="leadingMargin" id="jQD-Dx-MYQ"/>
                             <constraint firstItem="Fse-eu-e1q" firstAttribute="leading" secondItem="Ld7-0l-Knw" secondAttribute="leading" id="kcD-9e-ThD"/>
                             <constraint firstItem="Yyv-Wv-sPu" firstAttribute="leading" secondItem="nfb-uj-agx" secondAttribute="trailing" constant="28" id="lvM-yf-U2c"/>
-                            <constraint firstItem="La2-Bu-2Ig" firstAttribute="centerY" secondItem="Vcm-eG-CV7" secondAttribute="centerY" id="qvz-ct-mnQ"/>
                             <constraint firstItem="nfb-uj-agx" firstAttribute="leading" secondItem="Fse-eu-e1q" secondAttribute="trailing" constant="22" id="rR3-20-Tng"/>
-                            <constraint firstItem="La2-Bu-2Ig" firstAttribute="trailing" secondItem="Yyv-Wv-sPu" secondAttribute="trailing" id="uxa-gz-CcG"/>
-                            <constraint firstItem="Mgg-6z-fp6" firstAttribute="centerY" secondItem="La2-Bu-2Ig" secondAttribute="centerY" id="xgE-Y2-ATF"/>
+                            <constraint firstItem="La2-Bu-2Ig" firstAttribute="centerX" secondItem="Ld7-0l-Knw" secondAttribute="centerX" id="sdD-Mf-jdE"/>
                             <constraint firstItem="Ld7-0l-Knw" firstAttribute="trailing" secondItem="QLy-jp-hPD" secondAttribute="trailingMargin" id="y1o-fp-FDL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nub-eh-pmq"/>
@@ -619,6 +619,7 @@
                     <connections>
                         <outlet property="chatNameTextField" destination="Ld7-0l-Knw" id="Y7P-GD-TBq"/>
                         <outlet property="chatRoomImgView" destination="La2-Bu-2Ig" id="hco-gI-hOE"/>
+                        <outlet property="imageSwitch" destination="Vcm-eG-CV7" id="3Fk-PZ-keB"/>
                         <outlet property="playButton" destination="Yyv-Wv-sPu" id="VU1-Mw-Wap"/>
                         <outlet property="recordButton" destination="nfb-uj-agx" id="WFQ-2B-wI4"/>
                     </connections>

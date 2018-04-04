@@ -21,13 +21,6 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
     var hasWelcomeVoice = false
     let uiImagePicker = UIImagePickerController()
     var hasChatImage = false
-    var completeUpload = [false, false, false, false] {
-        didSet {
-            if completeUpload == [true, true, true, true] {
-                self.navigationController?.popViewController(animated: true)
-            }
-        }
-    } // image, welcomevoice, to chatsRef, to userRef
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +43,15 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
     
     @objc func doneAction() {
         if chatNameTextField.text?.count == 0 {
-            print("chat name is unvalid")
-            return
+            let alertController = UIAlertController(title: "Chat name is empty", message: "plz, give the chat name", preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.destructive) { (action: UIAlertAction) in
+                return
+            }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
         } else {
-            creatChatRoom(chatName: chatNameTextField.text!)
-            //            self.dismiss(animated: false, completion: nil)
+            creatChatRoom(chatName: chatNameTextField.text!, hasImg: hasChatImage, hasWV: hasWelcomeVoice)
+//                        self.dismiss(animated: false, completion: nil)
 
         }
     }
@@ -64,6 +61,7 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
             recordButton.isEnabled = true
             playButton.isEnabled = true
             audioSessionRecorder.activatingAudioSession()
+            hasWelcomeVoice = true
         } else {
             recordButton.isEnabled = false
             playButton.isEnabled = false
@@ -101,17 +99,30 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
     }
     
     @IBAction func imgToggled(_ sender: UISwitch) {
-        showImgActionSheet()
+        showImgActionSheet(sender: sender)
     }
     
-    func showImgActionSheet() {
+    @IBOutlet weak var imageSwitch: UISwitch!
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true) {
+            self.hasChatImage = false
+            self.imageSwitch.isOn = false
+        }
+    }
+    
+    func showImgActionSheet(sender: UISwitch) {
         let actionSheet = UIAlertController(title: "Select Source", message: nil, preferredStyle: .actionSheet)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            sender.isOn = false
+            self.hasChatImage = false
+        }
         let photoLibrary = UIAlertAction(title: "From Photo Library", style: .default) { [weak self] action in
             self?.uiImagePicker.allowsEditing = false                                     // this should be true later.
             self?.uiImagePicker.sourceType = .photoLibrary
             self?.uiImagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
             self?.present((self?.uiImagePicker)!, animated: true, completion: nil)
+            self?.hasChatImage = true
         }
         actionSheet.addAction(photoLibrary)
         actionSheet.addAction(cancel)
@@ -134,13 +145,11 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
         if let data = imgData {
             chatRoomImgRef.putData(data, metadata: nil, completion: { (meta, error) in
                 print("upload image completed.")
-                self.completeUpload[0] = true
-                print("completeUpload : \(self.completeUpload)")
             })
         }
     }
     
-    func creatChatRoom(chatName: String) {
+    func creatChatRoom(chatName: String, hasImg: Bool, hasWV: Bool) {
         let ref = Database.database().reference()
         let uid = Auth.auth().currentUser?.uid
         var name: Any?
@@ -150,41 +159,85 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
             if let name = name {
                 let chatsReference = ref.child("chats").childByAutoId() // create new chats child by autoID
                 
-                // add image to storage
-                if let img = self.chatRoomImgView.image {
-                    self.hasChatImage = true
-                    self.googleUpload(image: img, chatCode: chatsReference.key)
-                }
-                // add welcomeVoice to storage
-                if self.audioSessionRecorder.audioFile != nil {
-                    self.hasWelcomeVoice = true
-                    self.addWelcomeVoiceToStorage(chatCode: chatsReference.key)
-                }
                 // add chat to chats
-                let values = ["chat name": chatName, "host": name, "welcome voice": self.hasWelcomeVoice, "chat image": self.hasChatImage]
-//                chatsReference.setValue(values) // set chat name and host to this child
-                chatsReference.setValue(values, withCompletionBlock: { (error, ref) in
-                    print("add chat to chats completed.")
-                    self.completeUpload[2] = true
-                })
-                
-
-                // add to mychats in user reference
-                userReference.child(uid!).child("mychats").observeSingleEvent(of: .value) { (snapshot) in
-                    var chats = snapshot.value as? [String]
-                    if (chats == nil) {
-                        chats = [chatsReference.key]
-                    }
-                    else {
-                        chats?.append(chatsReference.key)
-                    }
-                    let values = ["mychats": chats!]
-                    userReference.child(uid!).updateChildValues(values)
-                    userReference.child(uid!).updateChildValues(values, withCompletionBlock: { (error, ref) in
-                        print("add to mychats in user refernce completed.")
-                        self.completeUpload[3] = true
+                func addToChats() {
+                    print("add chat to chats stated.")
+                    let values = ["chat name": chatName, "host": name, "welcome voice": self.hasWelcomeVoice, "chat image": self.hasChatImage]
+                    //                chatsReference.setValue(values) // set chat name and host to this child
+                    chatsReference.setValue(values, withCompletionBlock: { (error, ref) in
+                        print("add chat to chats completed.")
                     })
-                    chats?.removeAll()
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+                // add to mychats in user reference
+                func addToMychats() {
+                    print("add to mychats in user reference stated.")
+                    userReference.child(uid!).child("mychats").observeSingleEvent(of: .value) { (snapshot) in
+                        var chats = snapshot.value as? [String]
+                        if (chats == nil) {
+                            chats = [chatsReference.key]
+                        }
+                        else {
+                            chats?.append(chatsReference.key)
+                        }
+                        let values = ["mychats": chats!]
+                        userReference.child(uid!).updateChildValues(values)
+                        userReference.child(uid!).updateChildValues(values, withCompletionBlock: { (error, ref) in
+                            print("add to mychats in user refernce completed.")
+                        })
+                        chats?.removeAll()
+                    }
+                }
+                
+                // add welcomeVoice to storage
+                func addWV() {
+                    if hasWV {
+                        if self.audioSessionRecorder.audioFile != nil {
+                            self.addWelcomeVoiceToStorage(chatCode: chatsReference.key)
+                            addToMychats()
+                            addToChats()
+                        } else {
+                            let alertController = UIAlertController(title: "Create chat room without voice?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+                            let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (action: UIAlertAction) in
+                                self.hasWelcomeVoice = false
+                                addToMychats()
+                                addToChats()
+                            }
+                            let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (action: UIAlertAction) in
+                                return
+                            }
+                            alertController.addAction(yesAction)
+                            alertController.addAction(noAction)
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                    } else {
+                        addToMychats()
+                        addToChats()
+                    }
+                }
+                
+                // add image to storage
+                if hasImg {
+                    if let img = self.chatRoomImgView.image {
+                        self.googleUpload(image: img, chatCode: chatsReference.key)
+                        addWV()
+                    } else {
+                        let alertController = UIAlertController(title: "Create chat room without images?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+                        let yesAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.destructive) { (action: UIAlertAction) in
+                            self.hasChatImage = false
+                            addWV()
+                        }
+                        let noAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) { (action: UIAlertAction) in
+                            
+                            return
+                        }
+                        alertController.addAction(yesAction)
+                        alertController.addAction(noAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                } else {
+                    addWV()
                 }
             }
         })
@@ -196,7 +249,6 @@ class CreatChatViewController: UIViewController, AVAudioPlayerDelegate, UIImageP
         welcomeVoice.putFile(from: audioSessionRecorder.audioFile!) //later,, add completion delete file..really need this???..i don't think so..hmm...
         welcomeVoice.putFile(from: audioSessionRecorder.audioFile!, metadata: nil) { (meta, error) in
             print("add welcomeVoice to storage completed.")
-            self.completeUpload[1] = true
         }
     }
 }
