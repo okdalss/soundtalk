@@ -97,7 +97,9 @@ class MainChatController: UIViewController, UITableViewDataSource, UITableViewDe
         let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupimageviewid") as! PopUpImageViewController
         self.addChildViewController(popOverVC)
         popOverVC.view.frame = self.view.frame
-        popOverVC.imageCode = chats[indexPath.row].code
+//        popOverVC.imageCode = chats[indexPath.row].code
+        popOverVC.popUpImageView.image = cacheImages[chats[indexPath.row].code!]!.image
+        
         self.view.addSubview(popOverVC.view)
         popOverVC.didMove(toParentViewController: self)
     }

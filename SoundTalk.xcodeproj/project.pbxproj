@@ -13,6 +13,7 @@
 		C030D1C1205262C300682936 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D1C0205262C300682936 /* ChatTableViewCell.swift */; };
 		C06478362060F2A200A8B5C8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06478352060F2A200A8B5C8 /* Extensions.swift */; };
 		C066F17D203164FB00AB8007 /* CreatChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C066F17C203164FB00AB8007 /* CreatChatViewController.swift */; };
+		C0A5037020763AF700D0C624 /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A5036F20763AF700D0C624 /* MainMapViewController.swift */; };
 		C0CB9BBE200DBE760061BEE7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CB9BBD200DBE760061BEE7 /* AudioToolbox.framework */; };
 		C0CE7914204E92CA00617846 /* MyChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CE7913204E92CA00617846 /* MyChatController.swift */; };
 		C0CFCBCF204586E2009BC57D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CFCBCE204586E2009BC57D /* LoginController.swift */; };
@@ -36,6 +37,7 @@
 		C030D1C0205262C300682936 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		C06478352060F2A200A8B5C8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C066F17C203164FB00AB8007 /* CreatChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatChatViewController.swift; sourceTree = "<group>"; };
+		C0A5036F20763AF700D0C624 /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
 		C0CB9BBB200DBE760061BEE7 /* SoundTalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SoundTalk.entitlements; sourceTree = "<group>"; };
 		C0CB9BBD200DBE760061BEE7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C0CE7913204E92CA00617846 /* MyChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				C0CFCBD42046CE94009BC57D /* MainChatController.swift */,
 				C0CE7913204E92CA00617846 /* MyChatController.swift */,
 				C0E43F042062C60400478BA8 /* PopUpImageViewController.swift */,
+				C0A5036F20763AF700D0C624 /* MainMapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -201,6 +204,9 @@
 						SystemCapabilities = {
 							com.apple.InterAppAudio = {
 								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
 							};
 						};
 					};
@@ -303,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0A5037020763AF700D0C624 /* MainMapViewController.swift in Sources */,
 				C0DA5DF5201714440020C83D /* LoginViewController.swift in Sources */,
 				C06478362060F2A200A8B5C8 /* Extensions.swift in Sources */,
 				C0CFCBD52046CE94009BC57D /* MainChatController.swift in Sources */,

@@ -18,12 +18,7 @@ class PopUpImageViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        if imageCode != nil {
-            getChatImage(code: imageCode!)
-        }
+        popUpImageView.contentMode = .scaleAspectFit
     }
     
     override func didReceiveMemoryWarning() {
