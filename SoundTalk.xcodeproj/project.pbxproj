@@ -11,6 +11,7 @@
 		C00C59532015CBEB00181528 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C00C59522015CBEB00181528 /* GoogleService-Info.plist */; };
 		C02BE0642034628C00EA388C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BE0632034628C00EA388C /* Chat.swift */; };
 		C030D1C1205262C300682936 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030D1C0205262C300682936 /* ChatTableViewCell.swift */; };
+		C03A0ACD207DD82500F357B7 /* MapInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A0ACC207DD82500F357B7 /* MapInfoViewController.swift */; };
 		C06478362060F2A200A8B5C8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06478352060F2A200A8B5C8 /* Extensions.swift */; };
 		C066F17D203164FB00AB8007 /* CreatChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C066F17C203164FB00AB8007 /* CreatChatViewController.swift */; };
 		C0A5037020763AF700D0C624 /* MainMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A5036F20763AF700D0C624 /* MainMapViewController.swift */; };
@@ -35,6 +36,7 @@
 		C00C59522015CBEB00181528 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C02BE0632034628C00EA388C /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		C030D1C0205262C300682936 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		C03A0ACC207DD82500F357B7 /* MapInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInfoViewController.swift; sourceTree = "<group>"; };
 		C06478352060F2A200A8B5C8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C066F17C203164FB00AB8007 /* CreatChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatChatViewController.swift; sourceTree = "<group>"; };
 		C0A5036F20763AF700D0C624 /* MainMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				C0CE7913204E92CA00617846 /* MyChatController.swift */,
 				C0E43F042062C60400478BA8 /* PopUpImageViewController.swift */,
 				C0A5036F20763AF700D0C624 /* MainMapViewController.swift */,
+				C03A0ACC207DD82500F357B7 /* MapInfoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				C0CFCBCF204586E2009BC57D /* LoginController.swift in Sources */,
 				C0CFCBD3204587AE009BC57D /* WelcomeController.swift in Sources */,
 				C0DF57F8200CA9DE00436295 /* AppDelegate.swift in Sources */,
+				C03A0ACD207DD82500F357B7 /* MapInfoViewController.swift in Sources */,
 				C0DF580A200DB10700436295 /* AudioSessionandRecord.swift in Sources */,
 				C0E43F052062C60400478BA8 /* PopUpImageViewController.swift in Sources */,
 				C0CFCBD1204586F3009BC57D /* RegisterController.swift in Sources */,

@@ -216,7 +216,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckn-jO-u8X">
-                                <rect key="frame" x="6" y="21" width="362" height="80"/>
+                                <rect key="frame" x="7" y="21" width="360" height="80"/>
                                 <connections>
                                     <segue destination="nZw-Ly-OUc" kind="embed" id="szK-rf-lxe"/>
                                 </connections>
@@ -227,14 +227,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ckn-jO-u8X" secondAttribute="bottom" constant="566" id="5Uf-mH-e9z"/>
-                            <constraint firstItem="8Fd-rE-AQh" firstAttribute="leading" secondItem="ckn-jO-u8X" secondAttribute="leading" id="F1R-rT-7zv"/>
-                            <constraint firstItem="8Fd-rE-AQh" firstAttribute="trailing" secondItem="ckn-jO-u8X" secondAttribute="trailing" id="Iua-S5-s7e"/>
-                            <constraint firstItem="ckn-jO-u8X" firstAttribute="top" secondItem="7I6-kP-rT9" secondAttribute="top" constant="1" id="PK0-Nm-Pgo"/>
-                            <constraint firstItem="ckn-jO-u8X" firstAttribute="leading" secondItem="7I6-kP-rT9" secondAttribute="leading" constant="6" id="bzx-4Z-BzT"/>
-                            <constraint firstItem="ckn-jO-u8X" firstAttribute="centerX" secondItem="ksm-Ii-wDa" secondAttribute="centerX" id="ee9-mh-lGt"/>
-                            <constraint firstItem="7I6-kP-rT9" firstAttribute="bottom" secondItem="8Fd-rE-AQh" secondAttribute="bottom" constant="4" id="gzr-fh-tt3"/>
-                            <constraint firstItem="8Fd-rE-AQh" firstAttribute="top" secondItem="ckn-jO-u8X" secondAttribute="bottom" constant="3" id="uTL-G7-f0f"/>
+                            <constraint firstItem="7I6-kP-rT9" firstAttribute="bottom" secondItem="8Fd-rE-AQh" secondAttribute="bottom" constant="4" id="DdZ-ip-dCf"/>
+                            <constraint firstItem="8Fd-rE-AQh" firstAttribute="leading" secondItem="7I6-kP-rT9" secondAttribute="leading" constant="6" id="JcM-2R-4fd"/>
+                            <constraint firstAttribute="bottom" secondItem="ckn-jO-u8X" secondAttribute="bottom" constant="566" id="Mwb-gZ-nFh"/>
+                            <constraint firstItem="8Fd-rE-AQh" firstAttribute="top" secondItem="ckn-jO-u8X" secondAttribute="bottom" constant="3" id="QJn-fE-c0W"/>
+                            <constraint firstItem="ckn-jO-u8X" firstAttribute="leading" secondItem="7I6-kP-rT9" secondAttribute="leading" constant="7" id="VOK-Rk-Fxz"/>
+                            <constraint firstItem="ckn-jO-u8X" firstAttribute="centerX" secondItem="ksm-Ii-wDa" secondAttribute="centerX" id="Y6r-mY-WVE"/>
+                            <constraint firstItem="ckn-jO-u8X" firstAttribute="top" secondItem="7I6-kP-rT9" secondAttribute="top" constant="1" id="eUt-CX-eGU"/>
+                            <constraint firstItem="8Fd-rE-AQh" firstAttribute="centerX" secondItem="ckn-jO-u8X" secondAttribute="centerX" id="n4v-AY-inc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7I6-kP-rT9"/>
                     </view>
@@ -689,15 +689,36 @@
             </objects>
             <point key="canvasLocation" x="833" y="716"/>
         </scene>
-        <!--View Controller-->
+        <!--Map Info View Controller-->
         <scene sceneID="uSR-fa-xvk">
             <objects>
-                <viewController id="nZw-Ly-OUc" sceneMemberID="viewController">
+                <viewController id="nZw-Ly-OUc" customClass="MapInfoViewController" customModule="SoundTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qda-34-BiN">
-                        <rect key="frame" x="0.0" y="0.0" width="362" height="80"/>
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbh-nC-BxH">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jr1-Lg-MHD" customClass="MapAIView" customModule="SoundTalk" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="360" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(AI info msg in this region)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9R3-lj-dY3">
+                                        <rect key="frame" x="8" y="8" width="200" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search text for title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="clq-43-fnL">
+                                        <rect key="frame" x="8" y="37" width="200" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.99524738729999995" blue="0.80514496940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <viewLayoutGuide key="safeArea" id="1qk-Ry-ncM"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbh-nC-BxH" customClass="MapUserView" customModule="SoundTalk" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="360" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTl-Sf-Er4">
@@ -720,41 +741,31 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.99524738729999995" blue="0.80514496940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jr1-Lg-MHD">
-                                <rect key="frame" x="0.0" y="0.0" width="360" height="80"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(AI info msg in this region)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9R3-lj-dY3">
-                                        <rect key="frame" x="8" y="8" width="200" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search text for title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="clq-43-fnL">
-                                        <rect key="frame" x="8" y="37" width="200" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.99524738729999995" blue="0.80514496940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <viewLayoutGuide key="safeArea" id="1qk-Ry-ncM"/>
+                                <viewLayoutGuide key="safeArea" id="zp7-Qg-pEU"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="leading" secondItem="Jr1-Lg-MHD" secondAttribute="leading" id="400-N6-a7r"/>
-                            <constraint firstAttribute="bottom" secondItem="Wbh-nC-BxH" secondAttribute="bottom" id="7Jx-x8-FQt"/>
-                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="trailing" secondItem="Jr1-Lg-MHD" secondAttribute="trailing" id="DgO-pl-Ywb"/>
-                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="top" secondItem="qda-34-BiN" secondAttribute="top" id="MLI-9B-kzL"/>
-                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="bottom" secondItem="Jr1-Lg-MHD" secondAttribute="bottom" id="SLY-Xv-8XP"/>
-                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="leading" secondItem="qda-34-BiN" secondAttribute="leading" id="aMZ-9F-IAe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Wbh-nC-BxH" secondAttribute="trailing" constant="-14" id="bfB-hn-aRS"/>
-                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="top" secondItem="Jr1-Lg-MHD" secondAttribute="top" id="vBh-uV-URL"/>
+                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="top" secondItem="ko6-UF-ATq" secondAttribute="top" id="5L3-Dl-XHd"/>
+                            <constraint firstItem="Jr1-Lg-MHD" firstAttribute="top" secondItem="ko6-UF-ATq" secondAttribute="top" id="OXC-OP-Qgo"/>
+                            <constraint firstAttribute="trailing" secondItem="Jr1-Lg-MHD" secondAttribute="trailing" id="S4d-6o-kvE"/>
+                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="leading" secondItem="qda-34-BiN" secondAttribute="leading" id="Soe-Cq-ocj"/>
+                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="trailing" secondItem="Jr1-Lg-MHD" secondAttribute="trailing" id="bhy-Rm-8kW"/>
+                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="bottom" secondItem="Jr1-Lg-MHD" secondAttribute="bottom" id="hiL-3X-UZo"/>
+                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="bottom" secondItem="ko6-UF-ATq" secondAttribute="bottom" id="lWT-Si-7uR"/>
+                            <constraint firstItem="Wbh-nC-BxH" firstAttribute="leading" secondItem="Jr1-Lg-MHD" secondAttribute="leading" id="v8v-8f-a3G"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ko6-UF-ATq"/>
                     </view>
+                    <connections>
+                        <outlet property="aiMessageLabel" destination="9R3-lj-dY3" id="PHz-de-KBN"/>
+                        <outlet property="mapAIView" destination="Jr1-Lg-MHD" id="k9c-cg-Yv2"/>
+                        <outlet property="mapUserView" destination="Wbh-nC-BxH" id="8Ob-rK-fvf"/>
+                        <outlet property="searchTextField" destination="clq-43-fnL" id="1tK-Bt-BGg"/>
+                        <outlet property="userImageView" destination="xTl-Sf-Er4" id="j2a-T4-I4B"/>
+                        <outlet property="userOptMsgLabel" destination="wwc-s2-mjn" id="Gas-J0-YcB"/>
+                        <outlet property="userStateLabel" destination="ks3-9W-1Ms" id="8Pn-r7-T1G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="86F-WN-iHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
